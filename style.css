@@ -1,0 +1,323 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GERAIS / BODY
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* Cor de fundo base caso a imagem falhe + Imagem local */
+  background-color: #0f0c29;
+  background-image: linear-gradient(135deg, rgba(15, 12, 41, 0.6), rgba(18, 18, 32, 0.6)),
+                    url('./fundo-games.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+  
+
+
+/* ==========================================================================
+   2. HEADER & MENU COM SUBMENU
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(18, 18, 32, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid #6c5ce7;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #00cec9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header .logo:hover {
+  color: #a29bfe;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Menu Principal */
+nav ul.menu-principal {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav ul.menu-principal > li {
+  position: relative;
+}
+
+nav ul.menu-principal a {
+  color: #dfe6e9;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ações :hover, :focus, :active nos links do menu */
+nav ul.menu-principal a:hover,
+nav ul.menu-principal a:focus {
+  color: #00cec9;
+  background-color: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+nav ul.menu-principal a:active {
+  color: #a29bfe;
+}
+
+/* Submenu Dropdown */
+ul.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1e1e2f;
+  list-style: none;
+  border: 1px solid #6c5ce7;
+  border-radius: 6px;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 0;
+  z-index: 1001;
+}
+
+ul.submenu li a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #b2bec3;
+}
+
+ul.submenu li a:hover,
+ul.submenu li a:focus {
+  background-color: #6c5ce7;
+  color: #ffffff;
+}
+
+/* Exibir submenu no Hover e no Focus dos pais */
+li.has-submenu:hover > ul.submenu,
+li.has-submenu:focus-within > ul.submenu {
+  display: block;
+}
+
+/* Area de Usuário/Visitante no Header */
+.grupo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#nomeUsuario {
+  font-weight: 600;
+  color: #00cec9;
+}
+
+/* ==========================================================================
+   3. PADRONIZAÇÃO DE BOTÕES (Válido para todas as páginas)
+   ========================================================================== */
+.botao,
+button,
+.btn-nav {
+  display: inline-block;
+  background-color: #6c5ce7;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid #6c5ce7;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.botao.sec {
+  background-color: transparent;
+  color: #00cec9;
+  border-color: #00cec9;
+}
+
+/* Ações :hover, :active, :focus Padronizadas nos Botões */
+.botao:hover,
+button:hover,
+.btn-nav:hover {
+  background-color: #5a49e0;
+  border-color: #5a49e0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(108, 92, 231, 0.4);
+}
+
+.botao.sec:hover {
+  background-color: #00cec9;
+  color: #121220;
+}
+
+.botao:focus,
+button:focus,
+.btn-nav:focus {
+  outline: 3px solid #00cec9;
+  outline-offset: 2px;
+}
+
+.botao:active,
+button:active,
+.btn-nav:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   4. MAIN & CONTEÚDO
+   ========================================================================== */
+main {
+  flex: 1;
+  max-width: 1000px;
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section, .card-resenha, #areaUsuario > section {
+  background: rgba(25, 25, 45, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.inicio h1 {
+  font-size: 2.5rem;
+  color: #00cec9;
+  margin-bottom: 1rem;
+}
+
+.inicio p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #dfe6e9;
+}
+
+.botoes {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Formulários */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+label {
+  font-weight: bold;
+  color: #a29bfe;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #6c5ce7;
+  background-color: #121220;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #00cec9;
+  box-shadow: 0 0 8px rgba(0, 206, 201, 0.5);
+}
+
+/* Cartões e Listas */
+#catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-jogo {
+  background-color: #121220;
+  border: 1px solid #6c5ce7;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card-resenha {
+  margin-top: 1rem;
+}
+
+.card-resenha .autor {
+  font-size: 0.85rem;
+  color: #b2bec3;
+  margin-bottom: 0.5rem;
+}
+
+#listaDesejos ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+#listaDesejos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121220;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+footer {
+  background-color: rgba(18, 18, 32, 0.95);
+  border-top: 1px solid #6c5ce7;
+  text-align: center;
+  padding: 1.5rem;
+  color: #b2bec3;
+  font-size: 0.95rem;
+  margin-top: auto;
+}
+
+footer strong {
+  color: #00cec9;
+}

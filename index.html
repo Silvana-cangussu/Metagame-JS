@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetagamesJS - Avalie e Organize seus Jogos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+
+  <!-- Header Fixo / Menu Principal -->
+  <header>
+    <a class="logo" href="index.html">MetagamesJS</a>
+    
+    <nav>
+      <ul class="menu-principal">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="login.html">Login</a></li>
+        
+        <!-- Submenu: Sobre -->
+        <li class="has-submenu">
+          <a href="#">Sobre</a>
+          <ul class="submenu">
+            <li><a href="#">Empresa</a></li>
+            <li><a href="#">Clientes</a></li>
+          </ul>
+        </li>
+        
+        <!-- Submenu: Contato -->
+        <li class="has-submenu">
+          <a href="#">Contato</a>
+          <ul class="submenu">
+            <li><a href="#">Telefones</a></li>
+            <li><a href="#">Email</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Painel de Login / Usuário em destaque -->
+      <div id="navVisitante" class="grupo">
+        <a class="btn-nav" href="login.html">Entrar</a>
+        <a class="btn-nav" href="cadastro.html">Cadastrar</a>
+      </div>
+      
+      <div id="navUsuario" class="grupo oculto">
+        <span id="nomeUsuario"></span>
+        <button id="btnSair">Sair</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main>
+
+    <!-- Apresentação Principal (Sessão de Destaque) -->
+    <section id="inicio" class="inicio">
+      <h1>Dê nota aos seus jogos</h1>
+      <p>
+        O MetagamesJS é uma plataforma onde você pode escrever resenhas completas, avaliar os games que jogou e organizar uma lista personalizada com os próximos títulos que deseja jogar.
+      </p>
+      <div class="botoes">
+        <a class="botao" href="cadastro.html">Criar conta e começar</a>
+        <a class="botao sec" href="login.html">Já tenho conta</a>
+      </div>
+    </section>
+
+    <!-- Área restrita do usuário após login -->
+    <div id="areaUsuario" class="oculto">
+
+      <section>
+        <h2>Jogos para avaliar</h2>
+        <div id="catalogo"></div>
+      </section>
+
+      <section id="areaAvaliar">
+        <h2>Avaliar um jogo</h2>
+        <form id="formResenha">
+          <label for="titulo">Jogo</label>
+          <select id="titulo" required></select>
+
+          <label for="notaJogo">Nota</label>
+          <select id="notaJogo">
+            <option value="5">5 – Excelente</option>
+            <option value="4">4 – Muito bom</option>
+            <option value="3">3 – Bom</option>
+            <option value="2">2 – Fraco</option>
+            <option value="1">1 – Ruim</option>
+          </select>
+
+          <label for="texto">Resenha</label>
+          <textarea id="texto" rows="4" required></textarea>
+
+          <button type="submit">Publicar resenha</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Lista de desejados</h2>
+        <form id="formDesejo">
+          <label for="desejo">Jogo que você quer jogar</label>
+          <select id="desejo" required></select>
+          <button type="submit">Adicionar à lista</button>
+        </form>
+        <div id="listaDesejos"></div>
+      </section>
+
+      <section>
+        <h2>Resenhas publicadas</h2>
+        <div id="listaResenhas"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Rodapé Semântico -->
+  <footer>
+    <p>
+      &copy; <span id="anoAtual">2026</span> - Todos os direitos reservados.
+    </p>
+    <p>
+      Desenvolvido por: <strong>Nome dos Alunos Desenvolvedores</strong>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetagamesJS – Meus jogos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="logo" href="jogos.html">MetagamesJS</a>
+  <nav>
+    <span id="nomeUsuario"></span>
+    <button id="btnSair">Sair</button>
+  </nav>
+</header>
+
+<main>
+
+  <section>
+    <h2>Avaliar um jogo</h2>
+    <form id="formResenha">
+      <label for="titulo">Nome do jogo</label>
+      <input id="titulo" type="text" required>
+
+      <label for="notaJogo">Nota</label>
+      <select id="notaJogo">
+        <option value="5">5 – Excelente</option>
+        <option value="4">4 – Muito bom</option>
+        <option value="3">3 – Bom</option>
+        <option value="2">2 – Fraco</option>
+        <option value="1">1 – Ruim</option>
+      </select>
+
+      <label for="texto">Resenha</label>
+      <textarea id="texto" rows="4" required></textarea>
+
+      <button type="submit">Publicar resenha</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Lista de desejados</h2>
+    <form id="formDesejo">
+      <label for="desejo">Jogo que você quer jogar</label>
+      <input id="desejo" type="text" required>
+      <button type="submit">Adicionar à lista</button>
+    </form>
+    <div id="listaDesejos"></div>
+  </section>
+
+  <section>
+    <h2>Resenhas</h2>
+    <div id="listaResenhas"></div>
+  </section>
+
+</main>
+
+<script src="dados.js"></script>
+<script src="jogos.js"></script>
+</body>
+</html>

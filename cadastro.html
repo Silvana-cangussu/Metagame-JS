@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro – MetagamesJS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+
+  <!-- Header Fixo / Menu Principal Padronizado -->
+  <header>
+    <a class="logo" href="index.html">MetagamesJS</a>
+    
+    <nav>
+      <ul class="menu-principal">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="login.html">Login</a></li>
+        
+        <!-- Submenu: Sobre -->
+        <li class="has-submenu">
+          <a href="#">Sobre</a>
+          <ul class="submenu">
+            <li><a href="#">Empresa</a></li>
+            <li><a href="#">Clientes</a></li>
+          </ul>
+        </li>
+        
+        <!-- Submenu: Contato -->
+        <li class="has-submenu">
+          <a href="#">Contato</a>
+          <ul class="submenu">
+            <li><a href="#">Telefones</a></li>
+            <li><a href="#">Email</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Area de botões de navegação rápida -->
+      <div id="navVisitante" class="grupo">
+        <a class="btn-nav" href="login.html">Entrar</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="estreito">
+    <section>
+      <h2>Criar conta</h2>
+      <form id="formCadastro">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" required placeholder="Digite seu nome">
+
+        <label for="email">E-mail</label>
+        <input id="email" type="email" required placeholder="seuemail@exemplo.com">
+
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" required minlength="4" placeholder="Mínimo de 4 caracteres">
+
+        <p class="msg" id="msg"></p>
+        <button type="submit">Cadastrar</button>
+      </form>
+
+      <p class="rodape-form">Já tem conta? <a href="login.html">Entrar</a></p>
+    </section>
+  </main>
+
+  <!-- Rodapé Semântico Padronizado -->
+  <footer>
+    <p>
+      &copy; <span id="anoAtual">2026</span> - Todos os direitos reservados.
+    </p>
+    <p>
+      Desenvolvido por: <strong>Nome dos Alunos Desenvolvedores</strong>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
