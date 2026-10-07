@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
  
   const sectionInicio = document.getElementById("inicio");
   const areaUsuario = document.getElementById("areaUsuario");
+  const areaAvaliar = document.getElementById("areaAvaliar");
  
   const catalogoDiv = document.getElementById("catalogo");
   const selectTitulo = document.getElementById("titulo");
@@ -134,16 +135,16 @@ document.addEventListener("DOMContentLoaded", () => {
  
   // ======================================================
   // LOGIN (login.html)
-  // Precisa de: <form id="formLogin">, inputs com id="emailLogin" e
-  // id="senhaLogin" e um <p id="msg">
+  // Precisa de: <form id="formLogin">, inputs com id="email" e
+  // id="senha" e um <p id="msg">
   // ======================================================
   if (formLogin) {
     formLogin.addEventListener("submit", (evento) => {
       evento.preventDefault();
  
       const msg = document.getElementById("msg");
-      const email = document.getElementById("emailLogin").value.trim().toLowerCase();
-      const senha = document.getElementById("senhaLogin").value;
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const senha = document.getElementById("senha").value;
  
       const usuarios = lerStorage("usuarios", []);
       const encontrado = usuarios.find((u) => u.email === email && u.senha === senha);
@@ -154,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
  
       localStorage.setItem("usuarioLogado", JSON.stringify(encontrado));
-      window.location.href = "index.html";
+      window.location.href = "index.html#areaAvaliar";
     });
   }
  
@@ -341,6 +342,9 @@ document.addEventListener("DOMContentLoaded", () => {
   popularSelects();
   renderizarCatalogo();
   atualizarInterfaceUsuario();
+  if (usuarioLogado && window.location.hash === "#areaAvaliar" && areaAvaliar) {
+    requestAnimationFrame(() => areaAvaliar.scrollIntoView({ behavior: "smooth" }));
+  }
   renderizarResenhas();
   renderizarListaDesejos();
 });
