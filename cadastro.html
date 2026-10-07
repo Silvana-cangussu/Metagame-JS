@@ -52,24 +52,26 @@
       <h2>Criar conta</h2>
       <form id="formCadastro">
         <label for="nome">Nome</label>
-        <input id="nome" type="text" required placeholder="Digite seu nome">
+        <input id="nome" name="nome" type="text" required placeholder="Digite seu nome">
 
         <label for="email">E-mail</label>
-        <input id="email" type="email" required placeholder="seuemail@exemplo.com">
+        <input id="email" name="email" type="email" required placeholder="seuemail@exemplo.com">
 
         <label for="senha">Senha</label>
-        <input id="senha" type="password" required minlength="4" placeholder="Mínimo de 4 caracteres">
+        <input id="senha" name="senha" type="password" required minlength="4" placeholder="Mínimo de 4 caracteres">
 
-        
+        <label for="confirmarSenha">Confirmar senha</label>
+        <input id="confirmarSenha" name="confirmarSenha" type="password" required minlength="4" placeholder="Digite a senha novamente">
 
         <label for="cpf">cpf</label>
-        <input id="cpf" type="text" required placeholder="Digite seu cpf">
+        <input id="cpf" name="cpf" type="text" required placeholder="Digite seu cpf">
 
-        <label for="Endereco">Endereco</label>
-        <input id="Endereco" type="text" required placeholder="Digite seu endereco">
+        <label for="endereco">Endereço</label>
+        <input id="endereco" name="endereco" type="text" required placeholder="Digite seu endereco">
 
 
         <p class="msg" id="msg"></p>
+
         <button type="submit">Cadastrar</button>
       </form>
 
