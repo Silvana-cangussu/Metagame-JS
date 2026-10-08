@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- 1. Atualização automática do footer ---
-  const spanAno = document.getElementById("anoAtual");
-  if (spanAno) {
-    spanAno.textContent = new Date().getFullYear();
+  const spanDataAtual = document.getElementById("dataAtual");
+  if (spanDataAtual) {
+    spanDataAtual.textContent = new Intl.DateTimeFormat("pt-BR").format(new Date());
   }
  
   // --- 2. Funções auxiliares ---
@@ -26,20 +26,32 @@ document.addEventListener("DOMContentLoaded", () => {
  
   // --- 3. Catálogo de jogos ---
   const catalogoJogos = [
-    { id: "1", titulo: "Red Dead Redemption 2" },
-    { id: "2", titulo: "GTA 6" },
-    { id: "3", titulo: "Dark Souls 3" },
-    { id: "4", titulo: "God of War (2018)" },
-    { id: "5", titulo: "Cyberpunk 2077" },
-    { id: "6", titulo: "The Witcher 3" },
-    { id: "7", titulo: "Horizon Zero Dawn" },
-    { id: "8", titulo: "Assassin's Creed Valhalla" },
-    { id: "9", titulo: "Elden Ring" },
-    { id: "10", titulo: "Resident Evil Village" },
-    { id: "11", titulo: "Grand Theft Auto Vice City" },
-    { id: "12", titulo: "Final Fantasy VII Remake" },
-    { id: "13", titulo: "Hollow Knight" },
-    { id: "14", titulo: "Sekiro: Shadows Die Twice" }
+    { id: "1", titulo: "Red Dead Redemption 2", imagem: "red dead redemption 2.jpg" },
+    { id: "2", titulo: "GTA 6", imagem: "grand theft auto VI.jpg" },
+    { id: "3", titulo: "Dark Souls 3", imagem: "dark souls.jpg" },
+    { id: "4", titulo: "God of War (2018)", imagem: "god of war.jpg" },
+    { id: "5", titulo: "Cyberpunk 2077", imagem: "cyberpunk.jpg" },
+    { id: "6", titulo: "The Witcher 3", imagem: "the witcher 3.jpg" },
+    { id: "7", titulo: "Horizon Zero Dawn", imagem: "horizon zero down.jpg" },
+    { id: "8", titulo: "Assassin's Creed Valhalla", imagem: "assassins creed valhalla.jpg" },
+    { id: "9", titulo: "Elden Ring", imagem: "elden ring.jpg" },
+    { id: "10", titulo: "Resident Evil 4", imagem: "Resident_Evil_4_(remake).png" },
+    { id: "11", titulo: "Grand Theft Auto Vice City", imagem: "grand theft auto vice city.jpg" },
+    { id: "12", titulo: "Final Fantasy VII Remake", imagem: "final fantasy VII.jpg" },
+    { id: "13", titulo: "Hollow Knight", imagem: "hollow knight.jpg" },
+    { id: "14", titulo: "Sekiro: Shadows Die Twice", imagem: "Sekiro-Shadows-Die-Twice-game-poster-cover-art.jpg" },
+    { id: "15", titulo: "Grand Theft Auto", imagem: "grand theft auto.jpg" },
+    { id: "16", titulo: "Grand Theft Auto: San Andreas", imagem: "grand theft auto san andreas.jpg" },
+    { id: "17", titulo: "Ghost of Tsushima", imagem: "ghost of tsushima.jpg" },
+    { id: "18", titulo: "Cuphead", imagem: "cuphead.jpg" },
+    { id: "19", titulo: "Castlevania", imagem: "castlevania.jpg" },
+    { id: "20", titulo: "Batman: Arkham Knight", imagem: "batman arkhan knight.jpg" },
+    { id: "21", titulo: "Assassin's Creed IV: Black Flag", imagem: "assassins creed Iv Black flag.jpg" },
+    { id: "22", titulo: "Resident Evil 2", imagem: "resident evil 2.jpg" },
+    { id: "23", titulo: "Mafia", imagem: "mafia.jpg" },
+    { id: "24", titulo: "The Elder Scrolls V: Skyrim", imagem: "skyrim.jpg" },
+    { id: "25", titulo: "Shadow of the Colossus", imagem: "shadow of the colossus.jpg" },
+    { id: "26", titulo: "The Last of Us", imagem: "the last of us.jpg" }
   ];
  
   // --- 4. Elementos da página (alguns só existem em certas páginas) ---
@@ -109,12 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // Salva no localStorage (objeto -> texto JSON)
       usuarios.push(novoUsuario);
       localStorage.setItem("usuarios", JSON.stringify(usuarios));
- 
+      localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
+
       // Salva também em arquivo .txt
       salvarEmTxt(novoUsuario);
- 
-      msg.textContent = "Cadastro realizado com sucesso!";
-      formCadastro.reset();
+
+      window.location.href = "index.html#areaAvaliar";
     });
   }
  
@@ -210,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .map(
         (jogo) => `
         <div class="card-jogo">
+          ${jogo.imagem ? `<img class="imagem-jogo" src="${limpar(jogo.imagem)}" alt="Capa de ${limpar(jogo.titulo)}" loading="lazy">` : ""}
           <h3>${limpar(jogo.titulo)}</h3>
         </div>
       `

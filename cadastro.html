@@ -8,40 +8,42 @@
 </head>
 <body class="home">
 
-  <!-- Header Fixo / Menu Principal Padronizado -->
   <header>
     <a class="logo" href="index.html">MetagamesJS</a>
-    
-    <nav>
+    <nav aria-label="Navegação principal">
       <ul class="menu-principal">
         <li><a href="index.html">Início</a></li>
-        <li><a href="login.html">Login</a></li>
-        
-        <!-- Submenu: Sobre -->
+        <li><a href="index.html#areaAvaliar">Avaliações</a></li>
         <li class="has-submenu">
           <a href="#">Sobre</a>
           <ul class="submenu">
-            
-            <li><a href="#">Empresa</a></li>
-            <li><a href="#">Clientes</a></li>
+            <li class="submenu-info">
+              <h3>Empresa</h3>
+              <p>A MetagamesJS é uma plataforma para avaliar jogos, publicar resenhas e organizar uma lista de títulos desejados.</p>
+              <p>Nosso catálogo reúne jogos de diferentes estilos para a comunidade compartilhar opiniões e descobrir novas aventuras.</p>
+            </li>
+            <li class="submenu-info">
+              <h3>Clientes</h3>
+              <p>Feita para jogadores que querem registrar suas experiências, compartilhar opiniões e encontrar o próximo jogo para explorar.</p>
+              <p>Com uma conta, você pode avaliar jogos, publicar resenhas e montar sua lista pessoal.</p>
+            </li>
           </ul>
         </li>
-        
-        <!-- Submenu: Contato -->
         <li class="has-submenu">
           <a href="#">Contato</a>
           <ul class="submenu">
-            <li><a href="#">Telefones</a></li>
-            <li><a href="#">Email</a></li>
-            
-           
+            <li><a href="tel:+5532999831621">Telefone: 3299983-1621</a></li>
+            <li><a href="mailto:metagamesjs@senai.com.br">metagamesjs@senai.com.br</a></li>
           </ul>
         </li>
       </ul>
-
-      <!-- Area de botões de navegação rápida -->
       <div id="navVisitante" class="grupo">
         <a class="btn-nav" href="login.html">Entrar</a>
+        <a class="btn-nav" href="cadastro.html">Cadastrar</a>
+      </div>
+      <div id="navUsuario" class="grupo oculto">
+        <span id="nomeUsuario"></span>
+        <button id="btnSair" type="button">Sair</button>
       </div>
     </nav>
   </header>
@@ -82,7 +84,7 @@
   <!-- Rodapé Semântico Padronizado -->
   <footer>
     <p>
-      &copy; <span id="anoAtual">2026</span> - Todos os direitos reservados.
+      &copy; <span id="dataAtual"></span> - Todos os direitos reservados.
     </p>
     <p>
       Desenvolvido por: <strong>Nome dos Alunos Desenvolvedores</strong>
