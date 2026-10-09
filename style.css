@@ -260,6 +260,14 @@ section, .card-resenha, #areaUsuario > section {
   gap: 1rem;
 }
 
+.jogos-destaque {
+  margin-top: 2rem;
+}
+
+.jogos-destaque h2 {
+  margin-bottom: 0.75rem;
+}
+
 /* Formulários */
 form {
   display: flex;
@@ -290,7 +298,8 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* Cartões e Listas */
-#catalogo {
+#catalogo,
+.catalogo-jogos {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
@@ -312,6 +321,25 @@ input:focus, select:focus, textarea:focus {
 
 .card-jogo h3 {
   font-size: 0.95rem;
+}
+
+.avaliacao-jogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
+.estrelas {
+  color: #ffd166;
+  font-size: 1.1rem;
+  letter-spacing: 0.08rem;
+  line-height: 1.2;
+}
+
+.resumo-avaliacao {
+  color: #b2bec3;
+  font-size: 0.75rem;
 }
 
 .imagem-jogo {

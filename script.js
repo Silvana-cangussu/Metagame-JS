@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const areaAvaliar = document.getElementById("areaAvaliar");
  
   const catalogoDiv = document.getElementById("catalogo");
+  const catalogoInicioDiv = document.getElementById("catalogoInicio");
   const selectTitulo = document.getElementById("titulo");
   const selectDesejo = document.getElementById("desejo");
  
@@ -216,9 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
  
   function renderizarCatalogo() {
-    if (!catalogoDiv) return;
- 
-    catalogoDiv.innerHTML = catalogoJogos
+    const cards = catalogoJogos
       .map(
         (jogo) => `
         <div class="card-jogo">
@@ -228,6 +227,37 @@ document.addEventListener("DOMContentLoaded", () => {
       `
       )
       .join("");
+
+    const cardsComAvaliacoes = catalogoJogos
+      .map((jogo) => {
+        const avaliacoesJogo = resenhas.filter((resenha) => resenha.jogo === jogo.titulo);
+        const totalNotas = avaliacoesJogo.reduce((total, resenha) => total + Number(resenha.nota), 0);
+        const media = avaliacoesJogo.length ? totalNotas / avaliacoesJogo.length : 0;
+        const estrelasPreenchidas = Math.round(media);
+        const estrelas = Array.from({ length: 5 }, (_, indice) =>
+          indice < estrelasPreenchidas ? "★" : "☆"
+        ).join("");
+        const resumo = avaliacoesJogo.length
+          ? `${totalNotas} pontos · média ${media.toFixed(1).replace(".", ",")}/5 · ${avaliacoesJogo.length} ${
+              avaliacoesJogo.length === 1 ? "avaliação" : "avaliações"
+            }`
+          : "Sem avaliações";
+
+        return `
+          <div class="card-jogo">
+            ${jogo.imagem ? `<img class="imagem-jogo" src="${limpar(jogo.imagem)}" alt="Capa de ${limpar(jogo.titulo)}" loading="lazy">` : ""}
+            <h3>${limpar(jogo.titulo)}</h3>
+            <div class="avaliacao-jogo" aria-label="${limpar(resumo)}">
+              <span class="estrelas" aria-hidden="true">${estrelas}</span>
+              <span class="resumo-avaliacao">${limpar(resumo)}</span>
+            </div>
+          </div>
+        `;
+      })
+      .join("");
+
+    if (catalogoDiv) catalogoDiv.innerHTML = cardsComAvaliacoes;
+    if (catalogoInicioDiv) catalogoInicioDiv.innerHTML = cards;
   }
  
   // ======================================================
@@ -256,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("resenhas", JSON.stringify(resenhas));
  
       renderizarResenhas();
+      renderizarCatalogo();
       formResenha.reset();
     });
   }
